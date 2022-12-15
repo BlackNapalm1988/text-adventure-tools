@@ -1,0 +1,20 @@
+<begin> Introduction by Andrew Tijerina
+<dialog> You have awoken in a complete daze, the sun beating down on you. You look around and notice your in the desert
+<branch>
+    <prompt>
+        <option> look around
+        <option> go back to sleep
+            <dialog> Bad decision, you never wake up and die in the desert
+            <end>
+        <option> scream for help
+            <dialog> Nobody can hear you scream
+            <end>
+<dialog> You look around and notice a rocky outcrop, it seems like it may provide some shade.
+    <prompt>
+        <option> go
+        <option> stay
+            <dialog> Bad decision, you die in the desert
+            <end>
+<next>
+
+

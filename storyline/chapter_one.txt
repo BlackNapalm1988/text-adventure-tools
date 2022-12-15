@@ -1,0 +1,13 @@
+<begin> Chapter One, what happened to me?
+    <dialog> You arrive to the rocky outcrop, glad to be away from the sun.
+        <prompt>
+    <branch>
+        <option> look around
+        <option> examine clothes
+            <dialog> You take a look in your pockets and find a receipt.
+        <option> take a nap
+            <dialog> Probably not the best idea, but the heat is too much to bare.
+    <dialog> You look around and notice that on the horizon is a dark cloud, looks like a storm.
+<next>
+        
+    

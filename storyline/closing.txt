@@ -1,0 +1,11 @@
+<begin> Closing The night sets in
+    <dialog> Feeling refreshed, you think things are looking up but the truth is they are much more dangerous then you thought, now its getting colder.
+        <prompt>
+    <branch>
+        <option> Build fire
+            <dialog> With what, its raining, theres no wood and you have nothing to light it if you wanted too.
+        <option> Look around
+            <dialog> You desperately look around and notice a cave, very small, just big enough for one person.
+        <option> Examine pockets
+            <dialog> For lack of anything better you check you pockets...wait..what's this?
+<end>
