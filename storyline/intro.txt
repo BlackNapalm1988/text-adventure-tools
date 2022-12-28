@@ -1,7 +1,7 @@
 <begin> Introduction by Andrew Tijerina
 <dialog> You have awoken in a complete daze, the sun beating down on you. You look around and notice your in the desert
-<branch>
-    <prompt>
+<prompt>
+<branch> First Branch
         <option> look around
         <option> go back to sleep
             <dialog> Bad decision, you never wake up and die in the desert
@@ -9,12 +9,11 @@
         <option> scream for help
             <dialog> Nobody can hear you scream
             <end>
+<branch> Second Branch
 <dialog> You look around and notice a rocky outcrop, it seems like it may provide some shade.
-    <prompt>
-        <option> go
-        <option> stay
-            <dialog> Bad decision, you die in the desert
-            <end>
+<prompt>
+    <option> go
+    <option> stay
+        <dialog> Bad decision, you die in the desert
+        <end>
 <next>
-
-

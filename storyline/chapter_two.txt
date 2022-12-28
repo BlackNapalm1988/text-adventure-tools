@@ -1,13 +1,12 @@
 <begin> Chapter Two Rain in the desert
-    <dialog> You are not sure exactly when, but the rain came down in a terrible downpour.
-        <prompt>
-    <branch> 
-        <option> drink water
-            <dialog> It's refreshing, you can't help but rejoice, as the lightning strikes across the sky and the thunder rumbles.
-        <option> look around
-            <dialog> It's raining, nothing more to see.
-        <option> move
-            <dialog> There's no where to go, you are in the best spot
+<dialog> You are not sure exactly when, but the rain came down in a terrible downpour.
+<prompt>
+<branch> Fourth Branch
+    <option> drink water
+        <dialog> It's refreshing, you can't help but rejoice, as the lightning strikes across the sky and the thunder rumbles.
+    <option> look around
+        <dialog> It's raining, nothing more to see.
+    <option> move
+        <dialog> There's no where to go, you are in the best spot
     <dialog> You find yourself refreshed by the rain, you body is feeling much better, but...
 <next>
-    

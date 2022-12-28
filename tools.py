@@ -3,35 +3,21 @@
 
 
 class Interpreter():
-    """
-    Takes a loaded dictionary of one or more script files and loads them in.
-    """
-
-    # tags = [
-    #     "dialog",
-    #     "prompt",
-    #     "begin",
-    #     "end",
-    #     "next",
-    #     "branch",
-    #     "option",
-    # ]
 
     def __init__(self, scripts: dict):
         self.scripts = scripts
         self.text = ""
         self.branches = []
         self.options = []
-
-
+        self.branch_count = 0
 
     def start(self):
 
         def open_file():
             for index, path in enumerate(self.scripts):
                 if index <= len(self.scripts):
-                    with open(self.scripts.get(path)) as data:
-                        read_file(data)
+                    with open(self.scripts.get(path), 'r') as raw_data:
+                        read_file(raw_data)
         
         def read_file(data: str):
             for line in data:
@@ -44,26 +30,23 @@ class Interpreter():
                 tag = line[open_tag + 1:close_tag]
                 tag_data = line[close_tag + 1:]
 
-                tag.strip(" ")
-                tag.capitalize()
-                tag_data.strip(" ")
-                tag_data.capitalize()
-
                 process_tag(tag, tag_data)
 
         def process_tag(tag, tag_data):
-            # for command in self.tags:
-            #     if tag == command:
-            #         print(tag_data)
 
             if tag == "dialog":
                 self.dialog(tag_data)
 
             if tag == "prompt":
-                self.prompt(tag_data)
+                player_response = self.prompt()
+
+                if player_response == tag_data:
+                    return player_response
+                else:
+                    return "Error"
 
             if tag == "begin":
-                self.begin(tag_data)
+                pass
 
             if tag == "end":
                 self.end(tag_data)
@@ -72,7 +55,7 @@ class Interpreter():
                 self.next(tag_data)
 
             if tag == "branch":
-                self.branch(tag)
+                self.branch(tag_data)
 
             if tag == "option":
                 self.option(tag_data)
@@ -82,10 +65,11 @@ class Interpreter():
     def dialog(self, text: str):
         print(text)
 
-    def prompt(self, text: str):
-        input(text)
+    def prompt(self):
+        x = input(">> ")
+        return x
 
-    def begin(self, text: str):
+    def begin(self, text: str): 
         pass
 
     def end(self, text: str):
@@ -94,11 +78,11 @@ class Interpreter():
     def next(self, text: str):
         pass
 
-    def branch(self, text: str):
-        self.branches.append(text)
+    def branch(self, tag_data):
+        clean_tag = tag_data.strip().upper()
+        self.branches.append([clean_tag])
+        self.branch_count += 1
 
-    def option(self, text: str):
-        self.options.append(text)
-
-
-
+    def option(self, tag_data):
+        clean_tag = tag_data.strip().upper()
+        self.branches[self.branch_count - 1].append(clean_tag)
